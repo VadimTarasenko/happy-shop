@@ -1,10 +1,8 @@
+import React from 'react';
 import type { AppProps } from 'next/app';
-import StyledComponentsRegistry from '@/lib/registry';
+
+import '@/styles/global.scss';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <StyledComponentsRegistry>
-      <Component {...pageProps} />
-    </StyledComponentsRegistry>
-  );
+  return <Component {...pageProps} />;
 }

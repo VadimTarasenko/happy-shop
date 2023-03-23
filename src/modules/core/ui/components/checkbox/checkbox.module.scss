@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  border: 1px solid #586A84;
+  border-radius: 2px;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 200ms;
+
+  &_active {
+    background-color: #319DFF;
+    border-color: #319DFF;
+  }
+}

@@ -1,0 +1,45 @@
+.root {
+  width: 100%;
+  border: 1px solid #eef0f4;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0077E4;
+  margin-bottom: 20px;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+
+  &_ratio {
+    padding-top: 100%;
+  }
+
+  &_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.productData {
+  margin-top: 20px;
+}
+
+.price {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #1D232C;
+}
