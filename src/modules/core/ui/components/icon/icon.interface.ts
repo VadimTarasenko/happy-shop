@@ -1,6 +1,6 @@
 import type { FC, SVGProps } from 'react';
 
-export type IconName = 'check' | 'star' | 'starEmpty' | 'search';
+export type IconName = 'check' | 'star' | 'starEmpty' | 'search' | 'arrowDown';
 
 export type IconProps = {
   name: IconName;

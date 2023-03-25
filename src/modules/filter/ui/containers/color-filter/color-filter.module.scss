@@ -6,8 +6,23 @@
 }
 
 .color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 28px;
   height: 28px;
   border-radius: 50%;
   cursor: pointer;
+  transition: 200ms;
+  border-color: rgba(255,255,255,.5);
+  border-width: 0;
+  border-style: solid;
+
+  &_active {
+    border-width: 2px;
+  }
+
+  &_icon {
+    color: rgba(0,0,0,.5);
+  }
 }

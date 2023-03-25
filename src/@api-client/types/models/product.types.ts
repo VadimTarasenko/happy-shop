@@ -6,4 +6,5 @@ export type Product = BaseResource & {
   description: string;
   rating: number;
   price: number;
+  color: string;
 };

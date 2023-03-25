@@ -26,13 +26,26 @@
   border: 1px solid rgba(224, 224, 224, 0.596);
 }
 
-.tools {
+.header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding-bottom: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid rgb(189, 189, 189);
 }
 
 .title {
+  font-size: 24px;
+  color: rgb(18, 25, 38);
+  font-weight: 600;
+}
 
+.tools {
+  display: flex;
+  column-gap: 20px;
+}
+
+.search {
+  min-width: 310px;
 }

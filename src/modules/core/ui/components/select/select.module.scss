@@ -1,0 +1,65 @@
+.root {
+  position: relative;
+  user-select: none;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 64px;
+  height: 40px;
+  padding: 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(96, 125, 139, 0.04);
+  }
+
+  &_text {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(105, 117, 134);
+  }
+
+  &_arrow {
+    padding-left: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  background-color: #ffffff;
+  border-radius: 16px;
+  z-index: 10;
+  min-width: 120px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px -3px, rgba(0, 0, 0, 0.14) 0px 8px 10px 1px, rgba(0, 0, 0, 0.12) 0px 3px 14px 2px;
+}
+
+.option {
+  padding: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(96, 125, 139, 0.08);
+  }
+
+  &_active {
+    background-color: rgba(96, 125, 139, 0.08);
+  }
+
+  &_text {
+    font-size: 14px;
+    color: rgb(54, 65, 82);
+  }
+}
