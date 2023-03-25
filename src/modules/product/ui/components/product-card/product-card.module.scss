@@ -1,26 +1,22 @@
 .root {
   width: 100%;
-  border: 1px solid #eef0f4;
-  border-radius: 6px;
-  padding: 20px;
-}
+  border-radius: 18px;
+  background-color: #ffffff;
+  cursor: pointer;
 
-.title {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-  color: #0077E4;
-  margin-bottom: 20px;
+  &:hover {
+    transform: scale3d(1.02, 1.02, 1);
+    box-shadow: rgba(32, 40, 45, 0.08) 0 2px 14px 0;
+    transition: all 0.4s ease-in-out 0s;
+  }
 }
 
 .imageContainer {
   position: relative;
   width: 100%;
-
-  &_ratio {
-    padding-top: 100%;
-  }
+  border-radius: 18px 18px 0 0;
+  overflow: hidden;
+  height: 220px;
 
   &_image {
     position: absolute;
@@ -28,18 +24,41 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
 .productData {
-  margin-top: 20px;
+  padding: 16px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 16px;
+  color: rgb(18, 25, 38);
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(54, 65, 82);
+  overflow: hidden;
+  height: 45px;
+  margin-top: 16px;
+  line-height: 24px;
+}
+
+.rating {
+  margin-top: 16px;
 }
 
 .price {
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 21px;
-  color: #1D232C;
+  color: rgb(18, 25, 38);
+  margin-top: 16px;
 }

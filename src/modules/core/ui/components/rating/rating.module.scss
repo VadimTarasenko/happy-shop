@@ -1,0 +1,17 @@
+.root {
+  display: flex;
+
+  &_readonly {
+    pointer-events: none;
+  }
+}
+
+.star {
+  cursor: pointer;
+  transition: 200ms;
+  height: 18px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}

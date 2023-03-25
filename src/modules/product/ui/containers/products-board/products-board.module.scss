@@ -2,30 +2,22 @@
   display: flex;
   column-gap: 20px;
   width: 100%;
-  max-width: 1520px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px;
 }
 
 .products {
-  &_info {
-    border: 1px solid #EEF0F4;
-    border-radius: 6px;
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-
-  &_title {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    color: #1D232C;
-  }
+  flex: 1;
 }
 
 .filters {
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  width: 310px;
+  height: fit-content;
+  padding: 8px 24px;
+  background-color: #fff;
+  border-radius: 18px;
+  border: 1px solid rgba(224, 224, 224, 0.596);
 }
