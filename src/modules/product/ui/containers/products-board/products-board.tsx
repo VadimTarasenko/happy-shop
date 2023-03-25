@@ -8,6 +8,7 @@ import { Select } from '@/modules/core/ui/components/select';
 import { Placeholder } from '@/modules/core/ui/components/placeholder';
 import { PriceFilter } from '@/modules/filter/ui/containers/price-filter';
 import { ProductListEmptyView } from '@/modules/product/ui/components/product-list-empty-view';
+import { ProductBoardSkeleton } from '@/modules/product/ui/components/product-board-skeleton';
 // containers
 import { ColorFilter } from '@/modules/filter/ui/containers/color-filter';
 // hooks
@@ -66,11 +67,16 @@ export const ProductsBoard: FC = () => {
             isActive={productListQuery.data?.list.length === 0}
             placeholder={<ProductListEmptyView />}
           >
-            <ProductGrid>
-              {productListQuery.data?.list.map((product) => (
-                <ProductCard product={product} key={product.id} />
-              ))}
-            </ProductGrid>
+            <Placeholder
+              isActive={productListQuery.isLoading}
+              placeholder={<ProductBoardSkeleton />}
+            >
+              <ProductGrid>
+                {productListQuery.data?.list.map((product) => (
+                  <ProductCard product={product} key={product.id} />
+                ))}
+              </ProductGrid>
+            </Placeholder>
           </Placeholder>
         </div>
         <div className={styles.filters}>

@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-query';
 
 import '@/styles/global.scss';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = React.useState(() => new QueryClient());
