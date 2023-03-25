@@ -14,9 +14,9 @@ const PRODUCTS_COUNT = 12;
 
 const PRODUCTS_MOCK: Product[] = [...Array(PRODUCTS_COUNT)].map(() => ({
   id: faker.datatype.uuid(),
-  image: faker.image.abstract(undefined, undefined, true),
-  title: faker.commerce.product(),
-  description: faker.commerce.productDescription(),
+  image: faker.image.cats(undefined, undefined, true),
+  title: faker.animal.cat(),
+  description: faker.lorem.paragraph(),
   price: faker.datatype.number({ min: 200, max: 1000 }),
   rating: faker.datatype.number({ min: 2, max: 5 }),
   color: colors[faker.datatype.number({ min: 0, max: colors.length - 1 })].key,
@@ -66,7 +66,7 @@ export default function handler(
     list = list.filter((product) => product.price > minPrice);
   }
 
-  if (typeof req.query.minPrice === 'string' && !isNaN(+req.query.maxPrice)) {
+  if (typeof req.query.maxPrice === 'string' && !isNaN(+req.query.maxPrice)) {
     const maxPrice = +req.query.maxPrice;
 
     list = list.filter((product) => product.price < maxPrice);

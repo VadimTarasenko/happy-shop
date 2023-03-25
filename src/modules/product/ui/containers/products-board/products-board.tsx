@@ -5,39 +5,29 @@ import { ProductCard } from '@/modules/product/ui/components/product-card';
 import { TextField } from '@/modules/core/ui/components/text-field';
 import { Icon } from '@/modules/core/ui/components/icon';
 import { Select } from '@/modules/core/ui/components/select';
+import { Placeholder } from '@/modules/core/ui/components/placeholder';
+import { PriceFilter } from '@/modules/filter/ui/containers/price-filter';
+import { ProductListEmptyView } from '@/modules/product/ui/components/product-list-empty-view';
 // containers
 import { ColorFilter } from '@/modules/filter/ui/containers/color-filter';
 // hooks
 import { useProductListQuery } from '@/modules/product/data/hooks/use-product-list-query';
-// types
-import type { SelectOption } from '@/modules/core/ui/components/select/select.interface';
+// constants
+import { PRODUCT_SORT_OPTIONS } from '@/modules/product/data/constants/product-sort.constants';
 
 import styles from './products-board.module.scss';
-import { PriceFilter } from '@/modules/filter/ui/containers/price-filter';
 
-const SORT_VALUES: SelectOption[] = [
-  {
-    value: '+price',
-    title: 'Price: High to Low',
-  },
-  {
-    value: '-price',
-    title: 'Price: Low to High',
-  },
-  {
-    value: '+rating',
-    title: 'Popular first',
-  },
-];
+const MAX_PRICE = 1000;
 
 export const ProductsBoard: FC = () => {
   // state
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('+rating');
-  const [colors, setColors] = useState([]);
+  const [colors, setColors] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[min: number, max: number]>([
     // todo: update default range based on existing data
-    0, 1000,
+    0,
+    MAX_PRICE,
   ]);
   // queries
   const productListQuery = useProductListQuery({
@@ -57,7 +47,11 @@ export const ProductsBoard: FC = () => {
       <div className={styles.header}>
         <h1 className={styles.title}>Shop</h1>
         <div className={styles.tools}>
-          <Select value={sort} onChange={setSort} options={SORT_VALUES} />
+          <Select
+            value={sort}
+            onChange={setSort}
+            options={PRODUCT_SORT_OPTIONS}
+          />
           <TextField
             value={search}
             className={styles.search}
@@ -68,11 +62,16 @@ export const ProductsBoard: FC = () => {
       </div>
       <div className={styles.content}>
         <div className={styles.products}>
-          <ProductGrid>
-            {productListQuery.data?.list.map((product) => (
-              <ProductCard product={product} key={product.id} />
-            ))}
-          </ProductGrid>
+          <Placeholder
+            isActive={productListQuery.data?.list.length === 0}
+            placeholder={<ProductListEmptyView />}
+          >
+            <ProductGrid>
+              {productListQuery.data?.list.map((product) => (
+                <ProductCard product={product} key={product.id} />
+              ))}
+            </ProductGrid>
+          </Placeholder>
         </div>
         <div className={styles.filters}>
           <PriceFilter onChange={setPriceRange} />
