@@ -1,16 +1,14 @@
 import { type FC } from 'react';
 // components
-import { Checkbox } from '@/modules/core/ui/components/checkbox';
 import { FilterCardLayout } from '@/modules/filter/ui/components/filter-card-layout';
+import { Slider } from '@/modules/core/ui/components/slider';
 
-import styles from './price-filter.module.scss';
+import type { PriceFilterProps } from './price-filter.interface';
 
-export const PriceFilter: FC = () => {
+export const PriceFilter: FC<PriceFilterProps> = ({ onChange }) => {
   return (
     <FilterCardLayout title='Price'>
-      <div className={styles.root}>
-        <Checkbox value />
-      </div>
+      <Slider onAfterChange={onChange} min={0} max={1000} />
     </FilterCardLayout>
   );
 };

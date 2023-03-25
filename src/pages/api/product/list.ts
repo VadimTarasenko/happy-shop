@@ -60,6 +60,18 @@ export default function handler(
     list = list.filter((product) => filterColors.includes(product.color));
   }
 
+  if (typeof req.query.minPrice === 'string' && !isNaN(+req.query.minPrice)) {
+    const minPrice = +req.query.minPrice;
+
+    list = list.filter((product) => product.price > minPrice);
+  }
+
+  if (typeof req.query.minPrice === 'string' && !isNaN(+req.query.maxPrice)) {
+    const maxPrice = +req.query.maxPrice;
+
+    list = list.filter((product) => product.price < maxPrice);
+  }
+
   res.status(STATUS.SUCCESS).json({
     list,
   });

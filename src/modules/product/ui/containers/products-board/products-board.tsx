@@ -13,6 +13,7 @@ import { useProductListQuery } from '@/modules/product/data/hooks/use-product-li
 import type { SelectOption } from '@/modules/core/ui/components/select/select.interface';
 
 import styles from './products-board.module.scss';
+import { PriceFilter } from '@/modules/filter/ui/containers/price-filter';
 
 const SORT_VALUES: SelectOption[] = [
   {
@@ -31,18 +32,24 @@ const SORT_VALUES: SelectOption[] = [
 
 export const ProductsBoard: FC = () => {
   // state
-  const [searchQuery, setSearchQuery] = useState('');
+  const [search, setSearch] = useState('');
   const [sort, setSort] = useState('+rating');
   const [colors, setColors] = useState([]);
+  const [priceRange, setPriceRange] = useState<[min: number, max: number]>([
+    // todo: update default range based on existing data
+    0, 1000,
+  ]);
   // queries
   const productListQuery = useProductListQuery({
-    q: searchQuery,
+    q: search,
     colors: colors.join(','),
+    minPrice: priceRange[0],
+    maxPrice: priceRange[1],
     sort,
   });
 
   const handleSearchChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value);
+    setSearch(e.target.value);
   }, []);
 
   return (
@@ -52,7 +59,7 @@ export const ProductsBoard: FC = () => {
         <div className={styles.tools}>
           <Select value={sort} onChange={setSort} options={SORT_VALUES} />
           <TextField
-            value={searchQuery}
+            value={search}
             className={styles.search}
             onChange={handleSearchChange}
             startAdornment={<Icon name='search' color='rgba(0, 0, 0, 0.54)' />}
@@ -68,6 +75,7 @@ export const ProductsBoard: FC = () => {
           </ProductGrid>
         </div>
         <div className={styles.filters}>
+          <PriceFilter onChange={setPriceRange} />
           <ColorFilter activeColors={colors} onChange={setColors} />
         </div>
       </div>

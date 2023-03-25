@@ -4,6 +4,8 @@ export type GetProductListParams = {
   q?: string;
   sort?: string;
   colors?: string;
+  minPrice?: number;
+  maxPrice?: number;
 };
 
 export type GetProductListResponse = {
