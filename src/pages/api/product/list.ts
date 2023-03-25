@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { faker } from '@faker-js/faker';
 // constants
-import { colors } from '@/modules/product/data/constants/product-color.constants';
+import { colors } from '@/modules/product/constants/product-color.constants';
 // types
 import type { GetProductListResponse } from '@/@api-client/types/api/product-api.types';
 import type { Product } from '@/@api-client/types/models/product.types';

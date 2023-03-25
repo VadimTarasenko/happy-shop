@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 Improvements that are good to have but weren't made in favor of development speed:
 
-- Keeping filters and search in the browser url
+- Keep filters and search in the browser url
 - Create reusable theme (colors, shadows etc...)
 - Filter by rating
 

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 // components
-import { PageLayout } from '@/modules/core/ui/components/page-layout';
-import { ProductsBoard } from '@/modules/product/ui/containers/products-board';
+import { PageLayout } from '@/modules/core/components/page-layout';
+import { ProductsBoard } from '@/modules/product/containers/products-board';
 
 export default function Home() {
   return (
