@@ -1,8 +1,9 @@
-import { FC, memo } from 'react';
+import { type FC } from 'react';
 // icons
 import Check from '@/assets/icons/check.svg';
 import Star from '@/assets/icons/star.svg';
 import StarEmpty from '@/assets/icons/star-empty.svg';
+import Search from '@/assets/icons/search.svg';
 
 import type { IconProps, IconsMap } from './icon.interface';
 
@@ -10,9 +11,10 @@ export const icons: IconsMap = {
   check: Check,
   star: Star,
   starEmpty: StarEmpty,
+  search: Search,
 };
 
-const Icon: FC<IconProps> = ({ name, ...props }) => {
+export const Icon: FC<IconProps> = ({ name, ...props }) => {
   const SVGIcon = icons[name];
 
   if (!SVGIcon) {
@@ -23,5 +25,3 @@ const Icon: FC<IconProps> = ({ name, ...props }) => {
 
   return <SVGIcon {...props} />;
 };
-
-export default memo(Icon);

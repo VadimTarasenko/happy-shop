@@ -1,7 +1,7 @@
 import { type FC, useState, useCallback } from 'react';
 import cx from 'classnames';
 // components
-import Icon from '@/modules/core/ui/components/icon/icon';
+import { Icon } from '@/modules/core/ui/components/icon';
 
 import type { RatingProps } from './rating.interface';
 import styles from './rating.module.scss';

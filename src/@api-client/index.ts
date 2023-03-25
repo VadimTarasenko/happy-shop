@@ -1,3 +1,4 @@
+import qs from 'qs';
 import {
   GetProductListParams,
   GetProductListResponse,
@@ -13,8 +14,9 @@ const makeEndpoint = <P = unknown, R = unknown>(
 ): ((params: P) => Promise<R>) => {
   return (params: P) => {
     const _url = typeof url === 'string' ? url : url(params);
+    const _params = params ? qs.stringify(params) : '';
 
-    return fetch(_url, {
+    return fetch(`${_url}?${_params}`, {
       method,
       ...fetchParams,
     }).then((res) => res.json());

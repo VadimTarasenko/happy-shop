@@ -1,11 +1,11 @@
-import { type FC } from 'react';
+import { memo } from 'react';
 // components
 import { Rating } from '@/modules/core/ui/components/rating';
 
 import type { ProductCardProps } from './product-card.interface';
 import styles from './product-card.module.scss';
 
-export const ProductCard: FC<ProductCardProps> = ({ product }) => {
+export const ProductCard = memo<ProductCardProps>(({ product }) => {
   return (
     <article className={styles.root}>
       <div className={styles.imageContainer}>
@@ -25,4 +25,6 @@ export const ProductCard: FC<ProductCardProps> = ({ product }) => {
       </section>
     </article>
   );
-};
+});
+
+ProductCard.displayName = 'ProductCard';

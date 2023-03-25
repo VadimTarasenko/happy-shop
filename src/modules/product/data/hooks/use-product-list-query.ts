@@ -11,22 +11,12 @@ const PRODUCT_LIST_CACHE_KEY = 'PRODUCT_LIST';
 export const useProductListQuery = (
   params: GetProductListParams,
   options?: Omit<
-    UseQueryOptions<
-      GetProductListResponse,
-      Error,
-      GetProductListResponse,
-      string[]
-    >,
+    UseQueryOptions<GetProductListResponse, Error, GetProductListResponse>,
     'queryKey' | 'queryFn'
   >
 ) => {
-  return useQuery<
-    GetProductListResponse,
-    Error,
-    GetProductListResponse,
-    string[]
-  >({
-    queryKey: [PRODUCT_LIST_CACHE_KEY],
+  return useQuery<GetProductListResponse, Error, GetProductListResponse>({
+    queryKey: [PRODUCT_LIST_CACHE_KEY, params],
     queryFn: () => api.product.list(params),
     ...options,
   });

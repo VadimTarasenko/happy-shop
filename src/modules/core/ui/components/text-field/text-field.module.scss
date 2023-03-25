@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  cursor: text;
+  border-radius: 16px;
+  background-color: #fff;
+  border: 1px solid rgb(189, 189, 189);
+  transition: 200ms;
+  padding: 0 8px;
+
+  &:hover {
+    border-color: rgb(54, 65, 82);
+  }
+
+  &:focus-within {
+    border-color: rgb(96, 125, 139);
+    border-width: 2px;
+  }
+}
+
+.input {
+  font-family: Inter, sans-serif;
+  color: rgb(18, 25, 38);
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 0 8px;
+
+  &::placeholder {
+    color: rgb(175, 182, 187);
+  }
+}
+
+.startAdornment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+}

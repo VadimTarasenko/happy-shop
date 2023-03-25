@@ -11,7 +11,7 @@ const PRODUCTS_COUNT = 12;
 
 const PRODUCTS_MOCK: Product[] = [...Array(PRODUCTS_COUNT)].map(() => ({
   id: faker.datatype.uuid(),
-  image: faker.image.business(undefined, undefined, true),
+  image: faker.image.abstract(undefined, undefined, true),
   title: faker.commerce.product(),
   description: faker.commerce.productDescription(),
   price: faker.datatype.number({ min: 200, max: 1000 }),
@@ -24,7 +24,17 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<GetProductListResponse>
 ) {
+  let list = PRODUCTS_MOCK;
+
+  if (typeof req.query.q === 'string' && req.query.q !== '') {
+    list = PRODUCTS_MOCK.filter((product) =>
+      product.title
+        .toLowerCase()
+        .includes((req.query.q as string).toLowerCase())
+    );
+  }
+
   res.status(STATUS.SUCCESS).json({
-    list: PRODUCTS_MOCK,
+    list,
   });
 }
