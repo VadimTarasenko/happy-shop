@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Developer notes
+
+Improvements that are good to have but weren't made in favor of development speed:
+
+- Keeping filters and search in the browser url
+- Create reusable theme (colors, shadows etc...)
+- Filter by rating
+- Mobile and tablet view
+
+> Note: file `src/pages/api/product/list.ts` was written as fast as possible.
+
+enjoy: https://happy-shop-three.vercel.app/
+
 ## Getting Started
 
 First, run the development server:
