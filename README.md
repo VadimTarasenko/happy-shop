@@ -7,7 +7,6 @@ Improvements that are good to have but weren't made in favor of development spee
 - Keeping filters and search in the browser url
 - Create reusable theme (colors, shadows etc...)
 - Filter by rating
-- Mobile and tablet view
 
 > Note: file `src/pages/api/product/list.ts` was written as fast as possible.
 
